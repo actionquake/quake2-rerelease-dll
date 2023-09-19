@@ -4145,7 +4145,8 @@ struct fire_lead_pierce_t : pierce_args_t
 			// only deadmonster is pierceable, or actual dead monsters
 			// that haven't been made non-solid yet
 			if ((tr.ent->svflags & SVF_DEADMONSTER) ||
-				(tr.ent->health <= 0 && (tr.ent->svflags & SVF_MONSTER)))
+				(tr.ent->health <= 0 && (tr.ent->svflags & SVF_MONSTER)) ||
+				tr.ent->client)
 			{
 				if (!mark(tr.ent))
 					return false;
