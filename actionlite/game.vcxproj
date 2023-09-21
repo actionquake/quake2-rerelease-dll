@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c994b5ea-3058-403c-953d-3673c2c4d64e}</ProjectGuid>
+    <RootNamespace>game</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>../</OutDir>
+    <TargetName>$(ProjectName)_x64</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>../</OutDir>
+    <TargetName>$(ProjectName)_x64</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>KEX_Q2_GAME;KEX_Q2GAME_EXPORTS;NO_FMT_SOURCE;KEX_Q2GAME_DYNAMIC;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>NotSet</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) C:\Program Files (x86)\Steam\steamapps\common\Quake 2\rerelease\action\$(TargetName)$(TargetExt)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>KEX_Q2_GAME;KEX_Q2GAME_EXPORTS;NO_FMT_SOURCE;KEX_Q2GAME_DYNAMIC;_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>4267;4244</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>NotSet</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="action\a_game.h" />
+    <ClInclude Include="action\a_radio.h" />
+    <ClInclude Include="action\a_team.h" />
+    <ClInclude Include="action\a_xgame.h" />
+    <ClInclude Include="bg_local.h" />
+    <ClInclude Include="bots\bot_debug.h" />
+    <ClInclude Include="bots\bot_exports.h" />
+    <ClInclude Include="bots\bot_includes.h" />
+    <ClInclude Include="bots\bot_think.h" />
+    <ClInclude Include="bots\bot_utils.h" />
+    <ClInclude Include="cg_local.h" />
+    <ClInclude Include="ctf\g_ctf.h" />
+    <ClInclude Include="ctf\p_ctf_menu.h" />
+    <ClInclude Include="game.h" />
+    <ClInclude Include="g_local.h" />
+    <ClInclude Include="g_statusbar.h" />
+    <ClInclude Include="g_team.h" />
+    <ClInclude Include="m_actor.h" />
+    <ClInclude Include="m_player.h" />
+    <ClInclude Include="p_menu.h" />
+    <ClInclude Include="q_std.h" />
+    <ClInclude Include="q_vec3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="action\a_balancer.cpp" />
+    <ClCompile Include="action\a_doorkick.cpp" />
+    <ClCompile Include="action\a_game.cpp" />
+    <ClCompile Include="action\a_radio.cpp" />
+    <ClCompile Include="action\a_team.cpp" />
+    <ClCompile Include="action\a_xgame.cpp" />
+    <ClCompile Include="bots\bot_debug.cpp" />
+    <ClCompile Include="bots\bot_exports.cpp" />
+    <ClCompile Include="bots\bot_think.cpp" />
+    <ClCompile Include="bots\bot_utils.cpp" />
+    <ClCompile Include="cg_main.cpp" />
+    <ClCompile Include="cg_screen.cpp" />
+    <ClCompile Include="ctf\g_ctf.cpp" />
+    <ClCompile Include="g_ai.cpp" />
+    <ClCompile Include="g_chase.cpp" />
+    <ClCompile Include="g_cmds.cpp" />
+    <ClCompile Include="g_combat.cpp" />
+    <ClCompile Include="g_func.cpp" />
+    <ClCompile Include="g_items.cpp" />
+    <ClCompile Include="g_main.cpp" />
+    <ClCompile Include="g_misc.cpp" />
+    <ClCompile Include="g_monster.cpp" />
+    <ClCompile Include="g_phys.cpp" />
+    <ClCompile Include="g_save.cpp" />
+    <ClCompile Include="g_spawn.cpp" />
+    <ClCompile Include="g_svcmds.cpp" />
+    <ClCompile Include="g_target.cpp" />
+    <ClCompile Include="g_team.cpp" />
+    <ClCompile Include="g_trigger.cpp" />
+    <ClCompile Include="g_turret.cpp" />
+    <ClCompile Include="g_utils.cpp" />
+    <ClCompile Include="g_weapon.cpp" />
+    <ClCompile Include="m_actor.cpp" />
+    <ClCompile Include="m_move.cpp" />
+    <ClCompile Include="p_client.cpp" />
+    <ClCompile Include="p_hud.cpp" />
+    <ClCompile Include="p_menu.cpp" />
+    <ClCompile Include="p_move.cpp" />
+    <ClCompile Include="p_trail.cpp" />
+    <ClCompile Include="p_view.cpp" />
+    <ClCompile Include="p_weapon.cpp" />
+    <ClCompile Include="q_std.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
